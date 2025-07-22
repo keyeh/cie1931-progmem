@@ -2,9 +2,14 @@
 
 # CIE1931 LED Linear Brightness Ramp
 
-This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output. It stores the look up table in flash memory (PROGMEM) instead of SRAM. This allows for a 16x larger table which is useful for higher PWM frequencies and longer fade intervals. Additionally, it fixes [an error in the calculation](https://github.com/nitz/Cie1931/pull/3) and [fixes imports for Arduino IDE](https://github.com/nitz/Cie1931/issues/2#issuecomment-2902522632).
+This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output.
 
-## Why
+## Improvements
+It stores the look up table in flash memory (PROGMEM) instead of SRAM. This allows for a 16x larger table which is useful for higher PWM frequencies and longer fade intervals.
+
+Additionally, it fixes [an error in the calculation](https://github.com/nitz/Cie1931/pull/3) and [fixes imports for Arduino IDE](https://github.com/nitz/Cie1931/issues/2#issuecomment-2902522632).
+
+## Purpose
 
 Does your LED brightness ramp like this as you increase your PWM duty cycle?
 

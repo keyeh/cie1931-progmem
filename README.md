@@ -28,7 +28,7 @@ You may need to edit your compiler options (inside platform.txt in Arduino IDE) 
 - add: `-ftemplate-depth=10000` (or another large number)
 
 
-This code should run on basically any platform with a C++17 complier for it. You shouldn't even need floating point support on your target platform, because the math is all done at compile time.
+This code is designed for Atmega328 / Atmega168 and similar platforms. The math is all done at compile time.
 
 Using it is easy. Declare the curve with the settings you want, and use it like a lookup table. Here's an Arduino example:
 

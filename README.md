@@ -4,6 +4,8 @@
 
 This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output.
 
+This library is designed for Atmega328 / Atmega168 and similar platforms. The math is all done at compile time.
+
 ## Improvements
 It stores the look up table in flash memory (PROGMEM) instead of SRAM. This allows for a 16x larger table which is useful for higher PWM frequencies and longer fade intervals.
 
@@ -27,8 +29,6 @@ You may need to edit your compiler options (inside platform.txt in Arduino IDE) 
 - change to: `-std=gnu++17`
 - add: `-ftemplate-depth=10000` (or another large number)
 
-
-This code is designed for Atmega328 / Atmega168 and similar platforms. The math is all done at compile time.
 
 Using it is easy. Declare the curve with the settings you want, and use it like a lookup table. Here's an Arduino example:
 

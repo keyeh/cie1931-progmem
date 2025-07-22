@@ -2,6 +2,10 @@
 
 # CIE1931 LED Linear Brightness Ramp
 
+This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output. It stores the look up table in flash memory (PROGMEM) instead of SRAM. This allows for a 16x larger table which is useful for higher PWM frequencies and longer fade intervals. Additionally, it fixes [an error in the calculation](https://github.com/nitz/Cie1931/pull/3) and [fixes imports for Arduino IDE](https://github.com/nitz/Cie1931/issues/2#issuecomment-2902522632).
+
+## Why
+
 Does your LED brightness ramp like this as you increase your PWM duty cycle?
 
 ![sad led noises](https://github.com/nitz/Cie1931/blob/main/images/leds_uncorrected.png?raw=true)
@@ -12,13 +16,14 @@ But you'd rather them ramp up like this, smooth and pleasing to the eye?
 
 Then do I have the tiny library for you!
 
-## Description
-
-Cie1931 is a small C++ library (if you can call it that!) that uses constexpr to generate a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output.
-
 ## Usage
+### NOTE:
+You may need to edit your compiler options (inside platform.txt in Arduino IDE) and modify the `compiler.cpp.flags`
+- modify: `-std=gnu++17`
+- add: `-ftemplate-depth=10000` (or another large number)
 
-This code should run on basically any platform with a C++11 complier for it. You shouldn't even need floating point support on your target platform, because the math is all done at compile time.
+
+This code should run on basically any platform with a C++17 complier for it. You shouldn't even need floating point support on your target platform, because the math is all done at compile time.
 
 Using it is easy. Declare the curve with the settings you want, and use it like a lookup table. Here's an Arduino example:
 
@@ -68,6 +73,6 @@ void loop()
 
 This project is MIT licensed. See `LICENSE` for more information.
 
-Special thanks to [Jared Sanson](https://github.com/jorticus)'s [blog post](https://jared.geek.nz/2013/feb/linear-led-pwm) that led (pun intended) to me creating this small tool. I found their approach to the generation of a lightness curve novel, and wanted to be able to do it at compile time without needing to create source files should I change my settings. Images are also via Jared.
+Special thanks to [nitz/Cie1931](https://github.com/nitz/Cie1931) for the original library and [Jared Sanson](https://github.com/jorticus)'s [blog post](https://jared.geek.nz/2013/feb/linear-led-pwm) for their approach to the generation of a lightness curve. Images are also via Jared.
 
 Please feel free to open an issue or PR if you find a bug or have a suggestion!

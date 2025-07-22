@@ -24,7 +24,7 @@ Then do I have the tiny library for you!
 ## Usage
 ### NOTE:
 You may need to edit your compiler options (inside platform.txt in Arduino IDE) and modify the `compiler.cpp.flags`
-- modify: `-std=gnu++17`
+- change to: `-std=gnu++17`
 - add: `-ftemplate-depth=10000` (or another large number)
 
 

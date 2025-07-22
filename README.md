@@ -2,7 +2,7 @@
 
 # CIE1931 LED Linear Brightness Ramp
 
-This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table for translating a PWM duty cycle scale into a mostly linear brightness output.
+This is an improved version of [nitz/Cie1931](https://github.com/nitz/Cie1931) that generates a lookup table at compile time, for translating a PWM duty cycle into a linear brightness output using the [CIE 1976 luminance transformation](https://en.wikipedia.org/wiki/CIELUV#The_forward_transformation).
 
 This library is designed for Atmega328 / Atmega168 and similar platforms. The math is all done at compile time.
 
